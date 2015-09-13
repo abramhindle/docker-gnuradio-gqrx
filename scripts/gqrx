@@ -1,0 +1,4 @@
+#!/bin/bash
+export QT_X11_NO_MITSHM=1
+source ~/.bashrc
+exec /usr/local/bin/gqrx $*
