@@ -24,9 +24,12 @@ basedocker=docker run -ti --rm \
 	       -v $(storage):/home/ubuntu/storage \
 	       $(IMAGE) 
 
+$(storage):
+	mkdir $(storage)
+
 build:	.built
 
-.built:	Dockerfile
+.built:	Dockerfile $(storage)
 	docker build -t $(IMAGE) .
 	touch .built
 
