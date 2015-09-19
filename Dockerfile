@@ -40,3 +40,4 @@ ENV HOME /home/ubuntu
 RUN cd /home/ubuntu && \
     echo export QT_X11_NO_MITSHM=1>>.bashrc
 COPY scripts/gqrx /home/ubuntu/gqrx
+RUN mkdir /home/ubuntu/storage && chown ubuntu /home/ubuntu/storage && chmod 755 /home/ubuntu/storage

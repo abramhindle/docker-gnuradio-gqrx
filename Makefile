@@ -1,6 +1,7 @@
 IMAGE=gnuradio
 uid=$(shell id -u)
 dockerUsername=ubuntu
+storage=$(shell pwd)/storage
 #	       -v /run/user/$(uid)/pulse:/run/user/$(uid)/pulse
 # ok so we need the rtl_sdr in there
 # we need the pulse audio stuff
@@ -20,6 +21,7 @@ basedocker=docker run -ti --rm \
 	       -v ~/.pulse:/home/$(dockerUsername)/.pulse \
 	       -v /tmp/.X11-unix:/tmp/.X11-unix \
 	       -v /dev/bus/usb:/dev/bus/usb \
+	       -v $(storage):/home/ubuntu/storage \
 	       $(IMAGE) 
 
 build:	.built
